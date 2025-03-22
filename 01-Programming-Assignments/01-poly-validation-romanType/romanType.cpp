@@ -23,7 +23,9 @@ int main() {
             case 1:
                 std::cout << "Enter a set of roman numerals: ";
             std::cin >> r_numerals;
-            std::cout << std::fixed << std::setprecision(2) << r_numerals << " converts to -> " << r.conversionToNumericalValue(r_numerals) << std::endl;
+            std::cout << std::fixed << std::setprecision(2) << r_numerals << " converts to -> ";
+            return r.conversionToNumericalValue(r_numerals);
+
             break;
             case 2:
                 std::cout << "Enter a whole number: ";
