@@ -27,8 +27,8 @@ int main() {
             break;
             case 2:
                 std::cout << "Enter a whole number: ";
-            std::cin >> numbers;
-            return r.conversionFromRomanToNumericalValue(numbers);
+                std::cin >> numbers;
+                return r.conversionFromRomanToNumericalValue(numbers);
             default: return 1;
         }
     }

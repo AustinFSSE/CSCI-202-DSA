@@ -137,19 +137,19 @@ private:
 
 			if (first < second) {
 				std::string two_letters = std::string(1, numerals[k]) + numerals[k + 1]; // string(1, numerals[i]) ex: 'I' and 'V' becomes 'IV'
-				/*std::cout << numerals[k] << numerals[k + 1] << std::endl;*/
+				std::cout << numerals[k] << numerals[k + 1] << std::endl;
 				romans.push_back(charToEnum(two_letters));
 				k += 2;
 			}
 			else {
 				romans.push_back(charToEnum(numerals[k]));
-				/*std::cout << numerals[k] << std::endl;*/
+				std::cout << numerals[k] << std::endl;
 				k++;
 			}
 		}
-		/*for (auto& c : romans) {
+		for (auto& c : romans) {
 			std::cout << c << std::endl;
-		}*/
+		}
 
 		return romans;
 	}
