@@ -25,11 +25,10 @@ int main() {
             std::cin >> r_numerals;
             std::cout << std::fixed << std::setprecision(2) << r_numerals << " converts to -> ";
             return r.conversionToNumericalValue(r_numerals);
-
-            break;
             case 2:
                 std::cout << "Enter a whole number: ";
                 std::cin >> numbers;
+                std::cout << numbers << " converts to -> ";
                 return r.conversionFromRomanToNumericalValue(numbers);
             default: return 1;
         }

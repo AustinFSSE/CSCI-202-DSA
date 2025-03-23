@@ -29,6 +29,7 @@ public:
 		CD = 400,
 		CM = 900
 	};
+
 	static void printEnumKeys(RomanNumerals r) {
 		switch (r) {
 			case M:
@@ -66,6 +67,7 @@ public:
 		for (auto& c : romans) {
 			total += c;
 		}
+		std::cout << std::fixed << std::setprecision(2) <<  total;
 		return total;
 	}
 
@@ -137,18 +139,18 @@ private:
 
 			if (first < second) {
 				std::string two_letters = std::string(1, numerals[k]) + numerals[k + 1]; // string(1, numerals[i]) ex: 'I' and 'V' becomes 'IV'
-				std::cout << numerals[k] << numerals[k + 1] << std::endl;
+				/*std::cout << numerals[k] << numerals[k + 1] << " ";*/
 				romans.push_back(charToEnum(two_letters));
 				k += 2;
 			}
 			else {
 				romans.push_back(charToEnum(numerals[k]));
-				std::cout << numerals[k] << std::endl;
+				/*std::cout << numerals[k] << std::endl;*/
 				k++;
 			}
 		}
 		for (auto& c : romans) {
-			std::cout << c << std::endl;
+			/*std::cout << c << std::endl;*/
 		}
 
 		return romans;
