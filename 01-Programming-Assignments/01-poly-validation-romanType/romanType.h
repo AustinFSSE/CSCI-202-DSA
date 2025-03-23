@@ -149,9 +149,9 @@ private:
 				k++;
 			}
 		}
-		for (auto& c : romans) {
-			/*std::cout << c << std::endl;*/
-		}
+		/*for (auto& c : romans) {
+			std::cout << c << std::endl;
+		}*/
 
 		return romans;
 	}
