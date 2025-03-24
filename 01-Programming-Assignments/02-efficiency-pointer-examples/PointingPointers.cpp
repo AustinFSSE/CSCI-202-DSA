@@ -8,19 +8,35 @@
 
 using namespace std;
 
-int main() {
-    PointingPointers pp;
+void manipulateByReference(int* pArg1, int* pArg2) {
 
-    int nValue1 = 1;
-    int nValue2 = 2;
-    cout << "nValue1 = " << nValue1 << endl;
-    cout << "nValue2 = " << nValue2 << endl;
-    pp.manipulateByValue(nValue1, nValue2); // values don't change because values were passed and not their memory addresses
-    cout << "nValue1 = " << nValue1 << endl;
-    cout << "nValue2 = " << nValue2 << endl;
-    pp.manipulateByReference(&nValue1, &nValue2); // values change because new values were saved at nValue1's & nValue2's internal memory address
-    cout << "nValue1 = " << nValue1 << endl;
-    cout << "nValue2 = " << nValue2 << endl;
+    *pArg1 += 10;
+    *pArg2 += 10;
+}
+void manipulateByValue(int pArg1, int pArg2) {
+
+    pArg1 += 10;
+    pArg2 += 10;
+}
+
+int main() {
+    std::string arr[] = {"Austin", "NotAustin"};
+
+    // Declare pointer
+    std::string* p_string;
+    std::string* p2_string = &arr[1]; // Initialized to the second element
+
+    // Initialize pointer to an array value
+    p_string = arr; // same as &arr[0]
+    cout << p_string << endl; // memory address
+    cout << *p_string << endl; // value @ &arr[0] should return "Austin"
+
+    // display pointer arithmetic
+    cout << *(p_string + 1) << endl; // should return "NotAustin" since memory in an array is contiguous
+    p_string = &arr[1];
+    cout << *(p_string - 1) << endl; // should return "Austin"
+
+    /*cout << *(p2_string + 1) << endl; // should fail Index out of bounds*/
 
     return 0;
 }

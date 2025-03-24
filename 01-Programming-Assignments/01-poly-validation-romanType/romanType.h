@@ -11,7 +11,6 @@
 
 
 class romanType {
-
 public:
 
 	enum RomanNumerals {
@@ -113,14 +112,14 @@ private:
 	static RomanNumerals charToEnum(char c) {
 
 		switch (c) {
-		case 'M': return M;
-		case 'D': return D;
-		case 'C': return C;
-		case 'L': return L;
-		case 'X': return X;
-		case 'V': return V;
-		case 'I': return I;
-		default: return M;
+			case 'M': return M;
+			case 'D': return D;
+			case 'C': return C;
+			case 'L': return L;
+			case 'X': return X;
+			case 'V': return V;
+			case 'I': return I;
+			default: return M;
 
 		}
 	}
