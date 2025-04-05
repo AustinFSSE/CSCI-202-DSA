@@ -2,14 +2,16 @@
 // Created by Austin Martin on 4/4/25.
 //
 
-#ifndef QUEUEADT_H
-#define QUEUEADT_H
+#pragma once
 
 
 template <class Type>
 class queueADT {
 
 public:
+    queueADT() = default;
+    virtual ~queueADT() = default;
+
     virtual bool isEmptyQueue() const = 0;
     // Function to determine whether the queue is empty
     // Post-condition: Returns true if the queue is full,
@@ -54,6 +56,3 @@ public:
 
 };
 
-
-
-#endif //QUEUEADT_H

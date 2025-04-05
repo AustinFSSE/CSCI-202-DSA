@@ -4,3 +4,8 @@
 
 
 #include "queueADT.h"
+
+
+int main() {
+    return 0;
+}
