@@ -19,6 +19,7 @@ int main() {
     head->next->data = 20;
 
     cout << head->data << endl;
+
     cout << head->next << endl;
 
 
