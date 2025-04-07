@@ -9,7 +9,6 @@ template <class Type>
 class queueADT {
 
 public:
-    queueADT() = default;
     virtual ~queueADT() = default;
 
     virtual bool isEmptyQueue() const = 0;
