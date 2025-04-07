@@ -156,13 +156,13 @@ int main() {
 
     std::cout << q1.front() << std::endl;
     std::cout << q1.back() << std::endl;
-    //q1.display();
+    q1.display();
 
 
     q1.deleteQueue();
-    //q1.display();
+    q1.display();
 
     // display the operator effect
     q2 = q1;
-    // q2.display();
+    q2.display();
 }
