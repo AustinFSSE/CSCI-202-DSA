@@ -30,7 +30,7 @@ class LinkyListQueue : public queueADT<Type> {
   void display() const;
   LinkyListQueue& operator=(const LinkyListQueue&);
   LinkyListQueue();
-  ~LinkyListQueue();
+  ~LinkyListQueue() override;
 
   private:
     nodeType<Type> *queueFront;
@@ -148,7 +148,6 @@ LinkyListQueue<Type>::~LinkyListQueue() {
     queueFront = queueFront->link;
     delete temp;
   }
-  delete queueBack;
 }
 
 int main() {

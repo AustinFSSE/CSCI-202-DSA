@@ -7,15 +7,14 @@
 
 template <class Type>
 class queueADT {
-
 public:
+    virtual ~queueADT() {}
+    queueADT() {}
 
     virtual bool isEmptyQueue() const = 0;
     // Function to determine whether the queue is empty
     // Post-condition: Returns true if the queue is full,
     //                  otherwise returns false.
-
-
     virtual bool isFullQueue() const = 0;
     // Function to determine whether the queue is full
     // Post-condition: Returns true if the queue is full,
@@ -53,4 +52,3 @@ public:
     //                  the first element is removed from the queue
 
 };
-
