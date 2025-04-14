@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <iostream>
-
+#include <vector>
 #include <map>
 #include <sstream>
 
@@ -50,7 +50,7 @@ int main() {
     }
     for (const auto& word : states) {
 
-        if (tolower(input.data()) == tolower(word.second.data())) {
+        if (input == word.second) {
             cout << word.first << endl;
             return 0;
         }
