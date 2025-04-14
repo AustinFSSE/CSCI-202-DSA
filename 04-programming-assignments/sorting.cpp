@@ -14,12 +14,13 @@ class Node {
     int data;
     Node *next;
 
+    // initialize node
    explicit Node (const int data) {
         this->data = data;
         next = nullptr;
     }
 
-
+    // Allocate memory & data
     static void insert(int size, Node *head) {
         Node *current = head;
 
@@ -34,6 +35,7 @@ class Node {
        }
     }
 
+    // Print each list
     static void printList(Node *head) {
        Node *current = head;
        while (current != nullptr) {
@@ -42,6 +44,17 @@ class Node {
        }
        std::cout << std::endl;
    }
+
+    // Deallocate memory to avoid leaks
+    static void deleteList(Node *head) {
+       while (head != nullptr) {
+           Node* temp = head;
+           head = head->next;
+           delete temp;
+       }
+   }
+
+    //Selection Sort function
     static void selectionSort(Node *head) {
 
        for (Node *current = head; current != nullptr; current = current->next) {
@@ -56,6 +69,8 @@ class Node {
            }
        }
    }
+
+    // Merge sort functions
     static Node *split(Node *head) {
        Node *two_step = head;
        Node *one_step = head;
@@ -82,7 +97,6 @@ class Node {
        second->next = merge(first, second->next);
        return second;
    }
-
     static Node *mergeSort(Node *&head) { // NOLINT(*-no-recursion)
        if (head == nullptr || head->next == nullptr) { return head; }
 
@@ -122,6 +136,8 @@ int main() {
     double finishTime = static_cast<double>(end - start)/static_cast<double>(CLOCKS_PER_SEC / 1000);
     std::cout << "Merge Sort: " << finishTime << " milliseconds!"<< std::endl;
 
+    Node::deleteList(head);
+    Node::deleteList(anotherHead);
 
     return 0;
 }
