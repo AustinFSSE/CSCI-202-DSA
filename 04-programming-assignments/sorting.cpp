@@ -14,14 +14,13 @@ class Node {
     int data;
     Node *next;
 
-   Node (int data) {
+   explicit Node (const int data) {
         this->data = data;
         next = nullptr;
     }
 
 
-    void insert(int size, Node *&head) {
-       int counter = size;
+    static void insert(int size, Node *head) {
         Node *current = head;
 
        std::mt19937 gen(static_cast<unsigned>(time(nullptr)));
@@ -35,7 +34,7 @@ class Node {
        }
     }
 
-    void printList(Node *&head) {
+    static void printList(Node *head) {
        Node *current = head;
        while (current != nullptr) {
            std::cout << current->data << " ";
@@ -43,7 +42,7 @@ class Node {
        }
        std::cout << std::endl;
    }
-    void selectionSort(Node *&head) {
+    static void selectionSort(Node *head) {
 
        for (Node *current = head; current != nullptr; current = current->next) {
            Node *minimum = current;
@@ -57,7 +56,7 @@ class Node {
            }
        }
    }
-    Node *split(Node *&head) {
+    static Node *split(Node *head) {
        Node *two_step = head;
        Node *one_step = head;
 
@@ -71,7 +70,7 @@ class Node {
        one_step->next = nullptr;
        return temp;
    }
-    Node *merge(Node *&first, Node *&second) {
+    static Node *merge(Node *first, Node *second) { // NOLINT(*-no-recursion)
        if (first == nullptr) { return second; }
        if (second == nullptr) { return first; }
 
@@ -83,7 +82,8 @@ class Node {
        second->next = merge(first, second->next);
        return second;
    }
-    Node *mergeSort(Node *&head) {
+
+    static Node *mergeSort(Node *&head) { // NOLINT(*-no-recursion)
        if (head == nullptr || head->next == nullptr) { return head; }
 
        Node *second = split(head);
@@ -91,6 +91,7 @@ class Node {
        head = mergeSort(head);
        second = mergeSort(second);
 
+       // ReSharper disable once CppDFALocalValueEscapesFunction
        return merge(head, second);
    }
 };
@@ -98,36 +99,28 @@ class Node {
 
 
 int main() {
-    Node *head = new Node(0);
-    Node *anotherHead = new Node(0);
-    head->insert(100, head);
-    anotherHead->insert(10000, anotherHead);
-
-
-    // Before
-    // head->printList(head);
+    auto *head = new Node(0);
+    auto *anotherHead = new Node(0);
+    Node::insert(100, head);
+    Node::insert(10000, anotherHead);
 
     // // selection sort
     std::cout << "Running Selection Sort..." << std::endl;
     clock_t begin = clock();
-    head->selectionSort(head);
+    Node::selectionSort(head);
     clock_t finish = clock();
-    double doneTime = double(finish-begin)/double(CLOCKS_PER_SEC/1000);
+    double doneTime = static_cast<double>(finish - begin)/static_cast<double>(CLOCKS_PER_SEC / 1000);
     std::cout << "Selection Sort: " << doneTime << " milliseconds!"<< std::endl;
     //
-    // // After
-    // head->printList(head);
+
 
     // merge sort
     std::cout << "Running Merge Sort..." << std::endl;
     clock_t start = clock();
-    anotherHead->mergeSort(anotherHead);
+    Node::mergeSort(anotherHead);
     clock_t end = clock();
-    double finishTime = double(end-start)/double(CLOCKS_PER_SEC/1000);
+    double finishTime = static_cast<double>(end - start)/static_cast<double>(CLOCKS_PER_SEC / 1000);
     std::cout << "Merge Sort: " << finishTime << " milliseconds!"<< std::endl;
-
-    // After
-    // head->printList(anotherHead);
 
 
     return 0;
