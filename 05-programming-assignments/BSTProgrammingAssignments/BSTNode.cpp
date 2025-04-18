@@ -80,3 +80,32 @@ void BSTNode::PrintInOrderPrivate(node* Ptr)
     } else { cout << "The tree is empty\n"; }
 }
 
+BSTNode::node* BSTNode::ReturnNode(int key) 
+{
+    return ReturnNodePrivate(key, root);
+}
+BSTNode::node* BSTNode::ReturnNodePrivate(int key, node* Ptr) 
+{
+    if (Ptr != NULL)
+    {
+        if (Ptr->key == key)
+        {
+            return Ptr;
+        }
+        else
+        {
+            if (key<Ptr->key)
+            {
+                return ReturnNodePrivate(key, Ptr->left);
+            }
+            else 
+            {
+                return ReturnNodePrivate(key, Ptr->right);
+            }
+        }
+    }
+    else
+    {
+        return NULL;
+    }
+}
