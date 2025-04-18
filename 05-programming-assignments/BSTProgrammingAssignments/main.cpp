@@ -16,7 +16,14 @@ int main() {
 
     myTree.PrintInOrder();
 
+    for (int i = 0; i < 16; i++) 
+    {
+        myTree.AddLeaf(TreeKeys[i]);
+    }
 
-    cout << "Hello World!" << endl;
+    cout << "Printing the tree in order\nAfter adding numbers\n";
+
+    myTree.PrintInOrder();
+    
     return 0;
 }

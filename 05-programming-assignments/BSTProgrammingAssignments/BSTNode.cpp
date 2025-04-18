@@ -66,11 +66,11 @@ void BSTNode::PrintInOrder()
 }
 void BSTNode::PrintInOrderPrivate(node* Ptr)
 {
-    if (root != Null)
+    if (root != NULL)
     {
         if (Ptr->left != NULL) 
         {
-            PrintInOrderPrivatte(Ptr->left);
+            PrintInOrderPrivate(Ptr->left);
         }
         cout << Ptr->key << " ";
         if (Ptr->right != NULL)
