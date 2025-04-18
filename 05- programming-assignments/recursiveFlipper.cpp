@@ -7,9 +7,9 @@
 
 using namespace std;
 
-void flipper(int low, int high, int* arr) {
-  for (const int& c : arr) {
-    cout << c << "\n";
+void flipper(int low, int high, int *arr) {
+  for (const auto& c : arr) {
+    cout << c << endl;
   }
 }
 
