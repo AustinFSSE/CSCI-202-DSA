@@ -12,5 +12,9 @@ class BSTNode {
             node* right;
         };
         node* root;
+    
+    public:
+        BSTNode();
+        node* CreateLeaf(int key);
         
-}
+};
