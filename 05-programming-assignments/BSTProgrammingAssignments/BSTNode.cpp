@@ -21,4 +21,14 @@ BSTNode::node* BSTNode::CreateLeaf(int key)
     return n;
 }
 
+void BSTNode::AddLeafPrivate(int key, node* Ptr){
+
+    
+
+}
+
+void BSTNode::AddLeaf(int key) {
+    addLeafPrivate(key, root)
+}
+
 
