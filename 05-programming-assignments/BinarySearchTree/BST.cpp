@@ -73,3 +73,25 @@ void BST::PrintInOrderPrivate(node* Ptr) {
         }
     } else { cout << "The tree is empty\n"; }
 }
+
+void BST::PrintChildren(int key) 
+{
+    node* Ptr = ReturnNode(key);
+    if (Ptr != NULL) {
+        cout << "Parent Node = " << Ptr->key << endl;
+
+        (Ptr->left == NULL) 
+        ?
+        cout << "Left Child = NULL\n"
+        :
+        cout << "Left Child = " << Ptr->left->key << "\n";
+
+        (Ptr->right == NULL) 
+        ?
+        cout << "Right Child = NULL\n"
+        :
+        cout << "Right Child = " << Ptr->right->key << "\n";
+    } else {
+        cout << "Key " << key << " is not in the tree\n";
+    }
+}
