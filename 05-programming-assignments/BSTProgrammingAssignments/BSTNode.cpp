@@ -189,3 +189,41 @@ void BSTNode::RemoveNodePrivate(int key, node* parent) {
         cout << "the tree is empty\n";
     }
 }
+
+void BSTNode::RemoveRootMatch(){
+    if (root != NULL) {
+        node* delPtr = root;
+        int rootKey = root->key;
+        int smallestInRightSubtree;
+
+        // Case 0 - 0 children
+        if (root->left == NULL && root->right == NULL){
+            root = NULL;
+            delete delPtr;
+        }
+        // Case 1 - 1 children
+        else if (root->left == NULL && root->right != NULL) {
+            root = root->right;
+            delPtr->right = NULL;
+            delete delPtr;
+            cout << "the root node with key " << rootKey << " was deleted. " <<
+                "The new root contains key " << root->key << endl;
+        } else if (root->right == NULL && root->left != NULL) {
+            root = root->left;
+            delPtr->left = NULL;
+            delete delPtr;
+            cout << "the root node with key " << rootKey << " was deleted. " <<
+                "The new root contains key " << root->key << endl;
+        }
+
+        // Case 2 - 2 Children
+        else {
+            smallestInRightSubtree = FindSmallestPrivate(root->right);
+            RemoveNodePrivate(smallestInRightSubtree, root);
+            root->key = smallestInRightSubtree;
+            cout << "the root key containing key " << rootKey << " was overwritten with key " << root->key << endl;
+        }
+    } else {
+        cout << "The tree is empt\n";
+    }
+}
