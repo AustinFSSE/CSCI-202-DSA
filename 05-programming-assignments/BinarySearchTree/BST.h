@@ -15,6 +15,7 @@ class BST {
     void AddLeafPrivate(int key, node* Ptr);
     void PrintInOrderPrivate(node* Ptr);
     node* ReturnNodePrivate(int key, node* Ptr);
+    
 
     public:
     BST();
@@ -23,4 +24,5 @@ class BST {
     void PrintInOrder();
     node* ReturnNode(int key);
     void PrintChildren(int Key);
+    int LeafCount(int key);
 };

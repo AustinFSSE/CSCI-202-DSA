@@ -95,3 +95,31 @@ void BST::PrintChildren(int key)
         cout << "Key " << key << " is not in the tree\n";
     }
 }
+
+BST::node* BST::ReturnNode(int key){
+    return ReturnNodePrivate(key, root);
+}
+BST::node* BST::ReturnNodePrivate(int key, node* Ptr){
+    if (Ptr != NULL)
+    {
+        if (Ptr->key == key)
+        {
+            return Ptr;
+        }
+        else
+        {
+            if (key<Ptr->key)
+            {
+                return ReturnNodePrivate(key, Ptr->left);
+            }
+            else 
+            {
+                return ReturnNodePrivate(key, Ptr->right);
+            }
+        }
+    }
+    else
+    {
+        return NULL;
+    }
+}
