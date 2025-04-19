@@ -12,18 +12,30 @@ int main() {
 
     BSTNode myTree;
 
-    cout << "Printing the tree in order\nBefor adding numbers\n";
+    // cout << "Printing the tree in order\nBefor adding numbers\n";
 
-    myTree.PrintInOrder();
+    // myTree.PrintInOrder();
 
     for (int i = 0; i < 16; i++) 
     {
         myTree.AddLeaf(TreeKeys[i]);
     }
 
-    cout << "Printing the tree in order\nAfter adding numbers\n";
+    // cout << "Printing the tree in order\nAfter adding numbers\n";
 
-    myTree.PrintInOrder();
+    // myTree.PrintInOrder();
+
+    // cout << endl;
+
+    // myTree.PrintChildren(myTree.ReturnRootKey());
+
+    // cout << endl;
+
+    for (int i = 0; i < 16; i++) {
+        myTree.PrintChildren(TreeKeys[i]);
+        cout << endl;
+    }
+    
     
     return 0;
 }
