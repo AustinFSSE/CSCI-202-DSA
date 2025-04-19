@@ -23,6 +23,7 @@ class BST {
     void AddLeaf(int key);
     void PrintInOrder();
     node* ReturnNode(int key);
-    void PrintChildren(int Key);
+    int PrintChildren(int Key);
     int LeafCount(int key);
+    int SingleParent(int key);
 };

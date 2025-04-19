@@ -23,9 +23,15 @@ int main() {
 
     cout << endl;
 
+    int totalLeafCount = 0;
     for (int i = 0; i < 16; i++) {
-        myTree.PrintChildren(TreeKeys[i]);
-        cout << endl;
-    }
-    
+        totalLeafCount += myTree.LeafCount(TreeKeys[i]);
+     }
+     cout << "Total leaf count is: " << totalLeafCount << endl;
+
+     int totalSingleParent = 0;
+     for (int i = 0; i < 16; i++) {
+         totalSingleParent += myTree.SingleParent(TreeKeys[i]);
+      }
+      cout << "Total Single Parent count is: " << totalSingleParent << endl;
 }

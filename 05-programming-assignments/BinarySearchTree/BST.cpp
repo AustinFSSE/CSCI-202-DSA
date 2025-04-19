@@ -20,7 +20,6 @@ BST::node* BST::CreateLeaf(int key) {
 void BST::AddLeaf(int key) {
     AddLeafPrivate(key, root);
 }
-
 void BST::AddLeafPrivate(int key, node* Ptr) {
     if (root == NULL)
     {
@@ -58,7 +57,6 @@ void BST::PrintInOrder()
 {
     PrintInOrderPrivate(root);
 }
-
 void BST::PrintInOrderPrivate(node* Ptr) {
     if (root != NULL)
     {
@@ -74,32 +72,12 @@ void BST::PrintInOrderPrivate(node* Ptr) {
     } else { cout << "The tree is empty\n"; }
 }
 
-void BST::PrintChildren(int key) 
-{
-    node* Ptr = ReturnNode(key);
-    if (Ptr != NULL) {
-        cout << "Parent Node = " << Ptr->key << endl;
-
-        (Ptr->left == NULL) 
-        ?
-        cout << "Left Child = NULL\n"
-        :
-        cout << "Left Child = " << Ptr->left->key << "\n";
-
-        (Ptr->right == NULL) 
-        ?
-        cout << "Right Child = NULL\n"
-        :
-        cout << "Right Child = " << Ptr->right->key << "\n";
-    } else {
-        cout << "Key " << key << " is not in the tree\n";
-    }
-}
 
 BST::node* BST::ReturnNode(int key){
     return ReturnNodePrivate(key, root);
 }
 BST::node* BST::ReturnNodePrivate(int key, node* Ptr){
+
     if (Ptr != NULL)
     {
         if (Ptr->key == key)
@@ -122,4 +100,38 @@ BST::node* BST::ReturnNodePrivate(int key, node* Ptr){
     {
         return NULL;
     }
+}
+
+
+int BST::LeafCount(int key) {
+    
+    int total = 0;
+    node* Ptr = ReturnNode(key);
+    if (Ptr != NULL) {
+
+        if (Ptr->left == NULL && Ptr->right == NULL) {
+            total++;
+            // cout << "This node has no children\n";
+        }
+    } else {
+        // cout << "Key " << key << " is not in the tree\n";
+        return 0;
+    }
+    return total;
+}
+int BST::SingleParent(int key) {
+    
+    int total = 0;
+    node* Ptr = ReturnNode(key);
+    if (Ptr != NULL) {
+
+        if ((Ptr->left == NULL || Ptr->right == NULL) && (Ptr->left != NULL || Ptr->right != NULL)) {
+            total++;
+            // cout << "This node has no children\n";
+        }
+    } else {
+        // cout << "Key " << key << " is not in the tree\n";
+        return 0;
+    }
+    return total;
 }
