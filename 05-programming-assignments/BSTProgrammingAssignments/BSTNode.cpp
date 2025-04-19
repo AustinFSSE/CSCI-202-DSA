@@ -182,7 +182,7 @@ void BSTNode::RemoveNodePrivate(int key, node* parent) {
                 :
                 RemoveNodePrivate(key, parent->right);
             } else {
-                cout << "the key" << key << " was not found in the tree\n";
+                cout << "the key " << key << " was not found in the tree\n";
             }
         }
     } else {
