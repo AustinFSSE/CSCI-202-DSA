@@ -31,11 +31,12 @@ int main() {
 
     // cout << endl;
 
-    for (int i = 0; i < 16; i++) {
-        myTree.PrintChildren(TreeKeys[i]);
-        cout << endl;
-    }
+    // for (int i = 0; i < 16; i++) {
+    //     myTree.PrintChildren(TreeKeys[i]);
+    //     cout << endl;
+    // }
     
+    cout << "The smallest in the tree: " << myTree.FindSmallest();
     
     return 0;
 }

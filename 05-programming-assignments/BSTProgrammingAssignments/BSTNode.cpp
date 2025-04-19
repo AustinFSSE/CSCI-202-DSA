@@ -142,4 +142,50 @@ void BSTNode::PrintChildren(int key)
     }
 }
 
+int BSTNode::FindSmallest() {
+    return FindSmallestPrivate(root);
+}
 
+int BSTNode::FindSmallestPrivate(node* Ptr) {
+    if (root == NULL) {
+        cout << "The Tree is empty!\n";
+        return -1000;
+    } else {
+        if (Ptr->left != NULL) {
+            return FindSmallestPrivate(Ptr->left);
+        }
+        else {
+            return Ptr->key;
+        }
+    } 
+}
+
+void BSTNode::RemoveNode(int key){
+    RemoveNodePrivate(key, root);
+}
+
+void BSTNode::RemoveNodePrivate(int key, node* parent) {
+    if (root != NULL){
+        if (root->key == key) {
+           RemoveRootMatch(); 
+        } else {
+            if (key < parent->key && parent->left != NULL) {
+                parent->left->key == key 
+                ?
+                RemoveMatch(parent, parent->left, true)
+                :
+                RemoveNodePrivate(key, parent->left)
+            } else if (key > parent->key && parent->right != NULL) {
+                parent->right->key == key 
+                ?
+                RemoveMatch(parent, parent->right, true)
+                :
+                RemoveNodePrivate(key, parent->right)
+            } else {
+                cout << "the key" << key << " was not found in the tree\n";
+            }
+        }
+    } else {
+        cout << "the tree is empty\n";
+    }
+}
