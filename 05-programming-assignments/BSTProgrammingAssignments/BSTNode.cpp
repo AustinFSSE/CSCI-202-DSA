@@ -227,3 +227,40 @@ void BSTNode::RemoveRootMatch(){
         cout << "The tree is empt\n";
     }
 }
+
+void BSTNode::RemoveMatch(node* parent, node* match, bool left) {
+    if (root != NULL) {
+        node* delPtr;
+        int matchKey = match->key;
+        int smallestInRightSubTree;
+
+        // Case 0 - 0 Children
+        if (match->left == NULL && match->right == NULL) {
+            delPtr = match;
+            left == true ? parent->left = NULL : parent->right = NULL;
+            delete delPtr;
+            cout << "the node containing key " << matchKey << " was removed\n";
+        }
+        // Case 1 - 1 Children
+        else if (match->left == NULL && match->right != NULL ) {
+            left == true ? parent->left = match->right : parent->right = match->right;
+            match->right = NULL;
+            delPtr = match;
+            delete delPtr;
+            cout << "the node containing key " << matchKey << " was removed\n";
+        }  
+        else if (match->left != NULL && match->right == NULL ) {
+            left == true ? parent->left = match->left : parent->right = match->left;
+            match->right = NULL;
+            delPtr = match;
+            delete delPtr;
+            cout << "the node containing key " << matchKey << " was removed\n";
+        } 
+        // Case 2 - 2 Children
+        else {
+            smallestInRightSubTree = FindSmallestPrivate(match->right);
+            RemoveNodePrivate(smallestInRightSubTree, match);
+            match->key = smallestInRightSubTree;
+        }
+    }
+}
