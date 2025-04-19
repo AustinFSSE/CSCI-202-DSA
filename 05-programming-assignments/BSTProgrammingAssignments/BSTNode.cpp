@@ -174,13 +174,13 @@ void BSTNode::RemoveNodePrivate(int key, node* parent) {
                 ?
                 RemoveMatch(parent, parent->left, true)
                 :
-                RemoveNodePrivate(key, parent->left)
+                RemoveNodePrivate(key, parent->left);
             } else if (key > parent->key && parent->right != NULL) {
                 parent->right->key == key 
                 ?
                 RemoveMatch(parent, parent->right, true)
                 :
-                RemoveNodePrivate(key, parent->right)
+                RemoveNodePrivate(key, parent->right);
             } else {
                 cout << "the key" << key << " was not found in the tree\n";
             }

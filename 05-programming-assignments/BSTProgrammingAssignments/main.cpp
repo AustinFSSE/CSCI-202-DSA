@@ -36,7 +36,8 @@ int main() {
     //     cout << endl;
     // }
     
-    cout << "The smallest in the tree: " << myTree.FindSmallest();
+    // cout << "The smallest in the tree: " << myTree.FindSmallest();
+    
     
     return 0;
 }
