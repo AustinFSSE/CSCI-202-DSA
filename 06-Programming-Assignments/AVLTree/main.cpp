@@ -1,9 +1,12 @@
 #include "AVL.cpp"
 #include <iostream>
 
+using namespace std;
 
 int main()
 {
+    cout << "hello world"<< endl;
+    
     AVL avl;
 
     // Insert nodes into the AVL tree
@@ -24,7 +27,5 @@ int main()
     cout << "Is 30 in the tree? "
          << (avl.search(30) ? "Yes" : "No") << endl;
     
-         
-
     return 0;
 }
