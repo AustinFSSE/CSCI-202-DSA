@@ -17,13 +17,18 @@ class AVL {
 
     int height(node* node);
     int balanceFactor(node* node);
-
-    public:
-    AVL();
     node* rightRotate(node* node);
     node* leftRotate(node* node);
 
     node* insert(node* node, int key);
-    
+    bool search(node* root, int key);
+    void inorder(node* root);
 
-}
+    public:
+    AVL();
+    AVL(int key);
+    void insert(int key ) { root = insert(root, key); }
+    bool search(int key) { return search(root, key); }
+    void inorder() { inorder(root); }
+
+};
